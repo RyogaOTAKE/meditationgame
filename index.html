@@ -32,38 +32,24 @@
     height: 100%;
     display: block;
   }
-  #ui {
+  #task {
     position: fixed;
+    top: calc(6% + env(safe-area-inset-top));
     left: 0;
     right: 0;
-    bottom: calc(14px + env(safe-area-inset-bottom));
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-    transition: opacity 1.2s ease;
-    z-index: 3;
-  }
-  #ui.idle { opacity: 0.12; }
-  .mode-btn {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 20px;
+    text-align: center;
+    padding: 0 24px;
     font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    cursor: pointer;
-    transition: all 0.4s ease;
+    font-size: 21px;
+    letter-spacing: 0.22em;
+    color: rgba(234, 238, 246, 0.92);
+    text-shadow: 0 0 16px rgba(180, 200, 255, 0.35);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+    z-index: 2;
   }
-  .mode-btn.active {
-    border-color: rgba(255, 238, 200, 0.75);
-    color: rgba(255, 244, 220, 0.98);
-    background: rgba(255, 238, 200, 0.10);
-    box-shadow: 0 0 18px rgba(255, 230, 180, 0.25);
-  }
+  #task.show { opacity: 1; }
   #sound {
     position: fixed;
     top: calc(12px + env(safe-area-inset-top));
@@ -128,15 +114,11 @@
 
 <button id="sound" aria-label="音の切り替え">♪</button>
 
-<div id="ui">
-  <button class="mode-btn active" data-mode="bubbles" aria-label="泡モード">泡</button>
-  <button class="mode-btn" data-mode="ripples" aria-label="波紋モード">波</button>
-  <button class="mode-btn" data-mode="sand" aria-label="砂紋モード">砂</button>
-</div>
+<div id="task"></div>
 
 <div id="intro">
   <h1>無心</h1>
-  <div class="sub">なにも考えず、ただ指を動かす</div>
+  <div class="sub">めのまえの 作業だけを、ひたすらに</div>
   <div class="tap">— ふれて はじめる —</div>
 </div>
 
