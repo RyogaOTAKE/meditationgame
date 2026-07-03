@@ -1,5 +1,5 @@
 /* 無心 - Service Worker: オフラインでも遊べるように */
-const CACHE = 'mushin-v1';
+const CACHE = 'mushin-v2';
 const ASSETS = [
   './',
   './index.html',
